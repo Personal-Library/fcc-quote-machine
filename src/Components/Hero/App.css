@@ -1,0 +1,13 @@
+.hello {
+  height: 50vh;
+  width: 50vw;
+  background-color: #ddd;
+  border-radius: 10px;
+  position: relative;
+  top: 10vh;
+  left: 25vw;
+}
+
+.card-header {
+  text-align: center;
+}
