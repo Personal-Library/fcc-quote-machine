@@ -20,7 +20,7 @@ class Card extends Component {
 
   randomQuote = () => {
     let index = Math.floor(Math.random()*quotes.length)
-    if (quote[index].text == this.state.quote) {
+    if (quotes[index].text === this.state.quote) {
       index = index + 1
     }
     let quote = quotes[index].text
