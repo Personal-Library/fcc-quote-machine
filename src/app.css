@@ -7,11 +7,12 @@
 
 body {
   background-color: white;
+  transition: background-color 1s ease-in;
 }
 
 p {
   font-size: 24px;
-  text-indent: 50px;
+  text-indent: 40px;
 }
 
 h3 {
@@ -19,15 +20,31 @@ h3 {
   font-style: italic;
   text-align: right;
 }
+button {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: none;
+  cursor: pointer;
+  background-color: rgba(0, 0, 0, 0.432);
+  box-shadow: 0 0 15px 2px rgba(0, 0, 0, 0.5);
+  align-self: flex-start;
+}
+button:hover {
+  transform: scale(1.05);
+}
 
 .card {
   height: 400px;
   width: 600px;
   margin: 15% auto;
-  background-color: #E0E0E0;
+  background-color: white;
   border-radius: 20px;
   border: none;
   padding: 60px 40px;
-  box-shadow: 0 0 30px 5px rgba(0, 0, 0, 0.5)
+  box-shadow: 0 0 30px 5px rgba(0, 0, 0, 0.5);
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: space-around;
 }
 
