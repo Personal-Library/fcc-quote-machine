@@ -20,6 +20,9 @@ class Card extends Component {
 
   randomQuote = () => {
     let index = Math.floor(Math.random()*quotes.length)
+    if (quote[index].text == this.state.quote) {
+      index = index + 1
+    }
     let quote = quotes[index].text
     let author = quotes[index].name
     this.setState({
@@ -37,13 +40,13 @@ class Card extends Component {
     document.body.style.backgroundColor = this.randomColor();
     this.randomQuote();
     clearInterval(this.timerID);
-    this.timerID = setInterval(this.nextQuote, 4000)
+    this.timerID = setInterval(this.nextQuote, 6000)
   }
 
   componentDidMount() {
     document.body.style.backgroundColor = this.randomColor()
     this.randomQuote()
-    this.timerID = setInterval(this.nextQuote, 4000)
+    this.timerID = setInterval(this.nextQuote, 6000)
   }
 
 
@@ -147,6 +150,42 @@ const quotes = [
   {
     text: "Bring me a bucket, and I'll show you a bucket!",
     name: "Psycho"
+  },
+  {
+    text: "Me think, why waste time say lot word, when few word do trick.",
+    name: "Kevin Malone"
+  },
+  {
+    text: "Wisdom is the offspring of Suffering and Time.",
+    name: "Emperor Izaro"
+  },
+  {
+    text: "We are the sum of our deeds, not our names.",
+    name: "Ramza Beoulve"
+  },
+  {
+    text: "If our lives are already written, it would take a courageous man to change the script.",
+    name: "Alan Wake"
+  },
+  {
+    text: "What good is an intellect if you can't use it?",
+    name: "Raiden"
+  },
+  {
+    text: "Dream, not of what you are, but of what you want to be.",
+    name: "Margulis"
+  },
+  {
+    text: "Hatred and prejudice will never be eradicated. And the witch hunts will never be about witches. TO have a scapegoat, that's the key.",
+    name: "Geralt of Rivia"
+  },
+  {
+    text: "As life ebbs, terrible vistas of emptiness reveal themselves.",
+    name: "Darkest Dungeon"
+  },
+  {
+    text: "A man chooses, a slave obeys.",
+    name: "Andrew Ryan"
   }
 ]
 
