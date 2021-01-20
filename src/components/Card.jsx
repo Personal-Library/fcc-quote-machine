@@ -10,21 +10,16 @@ class Card extends Component {
     this.randomColor = this.randomColor.bind(this)
     this.randomQuote = this.randomQuote.bind(this)
     this.handleClick = this.handleClick.bind(this)
+    this.nextQuote = this.nextQuote.bind(this)
   }
-
-  componentDidMount() {
-    document.body.style.backgroundColor = this.randomColor()
-    this.randomQuote()
-  }
-
 
   randomColor = () => {
-    let index = Math.floor(Math.random()*9)
+    let index = Math.floor(Math.random()*colors.length)
     return colors[index]
   }
 
   randomQuote = () => {
-    let index = Math.floor(Math.random()*10)
+    let index = Math.floor(Math.random()*quotes.length)
     let quote = quotes[index].text
     let author = quotes[index].name
     this.setState({
@@ -33,13 +28,26 @@ class Card extends Component {
     })
   }
 
-  handleClick = () => {
+  nextQuote = () => {
     document.body.style.backgroundColor = this.randomColor();
     this.randomQuote();
   }
 
+  handleClick = () => {
+    document.body.style.backgroundColor = this.randomColor();
+    this.randomQuote();
+    clearInterval(this.timerID);
+    this.timerID = setInterval(this.nextQuote, 4000)
+  }
+
+  componentDidMount() {
+    document.body.style.backgroundColor = this.randomColor()
+    this.randomQuote()
+    this.timerID = setInterval(this.nextQuote, 4000)
+  }
+
+
   render() { 
-    
     return (
       <div className="card" id="quote-box">
         <p id="text">{this.state.quote}</p>
@@ -52,8 +60,6 @@ class Card extends Component {
  
 export default Card;
 
-
-
 const colors = [
 "#39A8A6",
 "#637575",
@@ -63,7 +69,18 @@ const colors = [
 "#F0EA78",
 "#84D0F0",
 "#F0D06D",
-"#8C54F0"
+"#8C54F0",
+"#845ec2",
+"#d65db1",
+"#ff6f91",
+"#ff9671",
+"#ffc75f",
+"#f9f871",
+"#def4fe",
+"#318eab",
+"#fefedf",
+"#9b89b3",
+"#ff8066"
 ]
 
 const quotes = [
@@ -106,6 +123,30 @@ const quotes = [
   {
     text: "Tell me and I forget. Teach me and I remember. Involve me and I learn.",
     name: "Benjamin Franklin"
+  },
+  {
+    text: "We all make choices in life, but in the end our choices make us.",
+    name: "Andrew Ryan"
+  },
+  {
+    text: "Get over here!",
+    name: "Scorpion"
+  },
+  {
+    text: "What is better? To be born good or to overcome your evil nature through great effort?",
+    name: "Paarthurnax"
+  },
+  {
+    text: "The right man in the wrong place can make all the difference in the world.",
+    name: "G-Man"
+  },
+  {
+    text: "Stand in the ashes of a trillion dead souls, and asks the ghosts if honor matters. The silence is your answer.",
+    name: "Javik"
+  },
+  {
+    text: "Bring me a bucket, and I'll show you a bucket!",
+    name: "Psycho"
   }
 ]
 
